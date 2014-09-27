@@ -144,11 +144,12 @@
     
     <a class="another" href="">AwardsBot, show me another one!</a>
 
-    <p class="link">How come some of the awards don't have links? <br/><br/>Check out: <a href="">These three charts explain everything you need to know about every ONA Award.</a></p>
+    <p class="link">How come some of the awards don't have links? <br/><br/>Check out: <a href="">These four charts explain everything you need to know about every ONA Award.</a></p>
 
     <p class="source">Source: <a href="http://journalists.org/awards/">Online Journalism Awards</a>. Robot designed by <a href="http://www.thenounproject.com/rutmer">Rutmer Zijlstra</a> from the <a href="http://www.thenounproject.com">Noun Project</a></p>
     
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//newsroom14.journalists.org/pym.js"></script>
     <script src="data/results.js"></script>
 
     <script>
@@ -184,6 +185,8 @@
 
       }
       
+      var pymChild = new pym.Child({ polling: 500 });
+
     </script>
   </body>
 </html>
