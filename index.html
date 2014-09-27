@@ -154,45 +154,46 @@
     <script src="data/results.js"></script>
 
     <script>
+    $(document).ready(function(
+        var pick = parseInt(Math.random()*1250);
+        var link = results[pick]["linkStatus"] <= 301 ? true : false;
 
-      var pick = parseInt(Math.random()*1250);
-      var link = results[pick]["linkStatus"] <= 301 ? true : false;
+        if ( results[pick]["Name"] == "" ){
 
-      if ( results[pick]["Name"] == "" ){
+          if (link){
+            $('.main-display').html("<a target='_blank' href='" + results[pick]["Url"] + "'>" + results[pick]["Media"] + "</a>");
+          } else {
+            $('.main-display').html(results[pick]["Media"]);
+          }
+          if(results[pick]["Status"]=='Winner') {
+            $('.second-display').html(results[pick]["Status"] + ", " + results[pick]["Award"] + ", in " + results[pick]["Year"]);
+          } else {
+            $('.second-display').html(results[pick]["Status"] + ", in " + results[pick]["Year"]);
+          }
 
-        if (link){
-          $('.main-display').html("<a target='_blank' href='" + results[pick]["Url"] + "'>" + results[pick]["Media"] + "</a>");
         } else {
-          $('.main-display').html(results[pick]["Media"]);
+
+          if (link){
+            $('.main-display').html("<a target='_blank' href='" + results[pick]["Url"] + "'>" + results[pick]["Name"] + "</a>");
+          } else {
+            $('.main-display').html(results[pick]["Name"]);
+          }
+
+          var media2 = results[pick]["Media2"] == "" ? "" : " and " + results[pick]["Media2"];
+
+          if(results[pick]["Status"]=='Winner') {
+            $('.second-display').html("by " + results[pick]["Media"] + media2 + ", " + results[pick]["Status"] + ", " + results[pick]["Award"] + ", in " + results[pick]["Year"]);
+          } else {
+             $('.second-display').html("by " + results[pick]["Media"] + media2 + ", " + results[pick]["Status"] + ", in " + results[pick]["Year"]);
+           }
+
+
         }
-        if(results[pick]["Status"]=='Winner') {
-          $('.second-display').html(results[pick]["Status"] + ", " + results[pick]["Award"] + ", in " + results[pick]["Year"]);
-        } else {
-          $('.second-display').html(results[pick]["Status"] + ", in " + results[pick]["Year"]);
-        }
 
-      } else {
+        var pymChild = new pym.Child({ polling: 500 });
+        setTimeout(function() { pymChild.sendHeight(); }, 1500);
 
-        if (link){
-          $('.main-display').html("<a target='_blank' href='" + results[pick]["Url"] + "'>" + results[pick]["Name"] + "</a>");
-        } else {
-          $('.main-display').html(results[pick]["Name"]);
-        }
-
-        var media2 = results[pick]["Media2"] == "" ? "" : " and " + results[pick]["Media2"];
-
-        if(results[pick]["Status"]=='Winner') {
-          $('.second-display').html("by " + results[pick]["Media"] + media2 + ", " + results[pick]["Status"] + ", " + results[pick]["Award"] + ", in " + results[pick]["Year"]);
-        } else {
-           $('.second-display').html("by " + results[pick]["Media"] + media2 + ", " + results[pick]["Status"] + ", in " + results[pick]["Year"]);
-         }
-
-
-      }
-
-      var pymChild = new pym.Child({ polling: 500 });
-      setTimeout(function() { pymChild.sendHeight(); }, 1500);
-
+      ));
     </script>
   </body>
 </html>
