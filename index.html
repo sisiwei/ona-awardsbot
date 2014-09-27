@@ -135,7 +135,7 @@
   <body>
 
     <img class="bot" src="robot.png"/>
-    <h3><span><strong>ONA AwardsBot</strong> rifled through the archives and found you:</span></h3>
+    <h3><span><strong>ONA AwardsBot</strong> rifled through the archives and found:</span></h3>
     
     <div class="winner effect7">
       <h1 class="main-display"><a href="">Ala Wai Canal: Hawaii’s Biggest Mistake?</a></h1>
@@ -164,7 +164,7 @@
       if ( results[pick]["Name"] == "" ){
 
         if (link){
-          $('.main-display').html("<a href='" + results[pick]["Url"] + "'>" + results[pick]["Media"] + "</a>");
+          $('.main-display').html("<a target='_blank' href='" + results[pick]["Url"] + "'>" + results[pick]["Media"] + "</a>");
         } else {
           $('.main-display').html(results[pick]["Media"]);
         }
@@ -173,7 +173,7 @@
       } else {
 
         if (link){
-          $('.main-display').html("<a href='" + results[pick]["Url"] + "'>" + results[pick]["Name"] + "</a>");
+          $('.main-display').html("<a target='_blank' href='" + results[pick]["Url"] + "'>" + results[pick]["Name"] + "</a>");
         } else {
           $('.main-display').html(results[pick]["Name"]);
         }
