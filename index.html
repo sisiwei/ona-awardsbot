@@ -154,7 +154,7 @@
     <script src="data/results.js"></script>
 
     <script>
-    $(document).ready(function(
+    $(document).ready(function() {
         var pick = parseInt(Math.random()*1250);
         var link = results[pick]["linkStatus"] <= 301 ? true : false;
 
@@ -193,7 +193,7 @@
         var pymChild = new pym.Child({ polling: 500 });
         setTimeout(function() { pymChild.sendHeight(); }, 1500);
 
-      ));
+      });
     </script>
   </body>
 </html>
