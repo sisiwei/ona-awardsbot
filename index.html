@@ -17,10 +17,11 @@
 
       h1 {
         font-family: 'Roboto Slab', serif;
+        margin-bottom: 0px;
       }
 
       h1 a {
-        color: black;
+        color: #36a0e0;
         text-decoration: none;
       }
 
@@ -36,7 +37,7 @@
 
       .winner {
         margin: 30px 0px;
-        padding: 20px;
+        padding: 20px 40px;
       }
 
       .top {
@@ -72,10 +73,18 @@
         border-radius: 4px;
       }
 
+      .another:hover {
+        background-color: #4290C0;
+      }
+
       .source {
         font-size: 11px;
         color: #888;
-        margin-top: 35px;
+        margin-top: 5px;
+      }
+
+      p.link {
+        margin-top: 105px;
       }
 
       .effect7 {
@@ -85,7 +94,7 @@
                   box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
       }
 
-      .effect7:before, .effect7:after {
+      .effect7:before {
         content:"";
         position:absolute; 
         z-index:-1;
@@ -102,7 +111,7 @@
 
       .effect7:after {
         right:10px; 
-          left:auto;
+        left:auto;
           -webkit-transform:skew(8deg) rotate(3deg); 
              -moz-transform:skew(8deg) rotate(3deg);     
               -ms-transform:skew(8deg) rotate(3deg);     
@@ -129,19 +138,49 @@
     <h3><span><strong>ONA AwardsBot</strong> rifled through the archives and found you:</span></h3>
     
     <div class="winner effect7">
-      <h1><a href="">Ala Wai Canal: Hawaii’s Biggest Mistake?</a></h1>
-      <h2>by the Honolulu Civil Beat, won in the category of TKTKTKT in 2013</h2>
+      <h1 class="main-display"><a href="">Ala Wai Canal: Hawaii’s Biggest Mistake?</a></h1>
+      <h2 class="second-display">by the Honolulu Civil Beat, won in the category of TKTKTKT in 2013</h2>
     </div>
     
     <a class="another" href="">AwardsBot, show me another one!</a>
 
+    <p class="link">Still curious? <a href="">These three charts explain everything you need to know about every ONA Award.</a></p>
 
     <p class="source">Source: ONA. Robot designed by <a href="http://www.thenounproject.com/rutmer">Rutmer Zijlstra</a> from the <a href="http://www.thenounproject.com">Noun Project</a></p>
     
-    <!-- <script src="js/vendor/jquery.js"></script> -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="data/results.js"></script>
 
     <script>
 
+      var pick = parseInt(Math.random()*1250);
+      var link = results[pick]["linkStatus"] <= 301 ? true : false;
+
+      // console.log(results[pick]["Url"]);
+      // console.log(results[pick]["linkStatus"]);
+      // console.log(link);
+
+
+      if ( results[pick]["Name"] == "" ){
+
+        if (link){
+          $('.main-display').html("<a href='" + results[pick]["Url"] + "'>" + results[pick]["Media"] + "</a>");
+        } else {
+          $('.main-display').html(results[pick]["Media"]);
+        }
+        $('.second-display').html(results[pick]["Status"] + ", " + results[pick]["Award"] + ", in " + results[pick]["Year"]);
+
+      } else {
+
+        if (link){
+          $('.main-display').html("<a href='" + results[pick]["Url"] + "'>" + results[pick]["Name"] + "</a>");
+        } else {
+          $('.main-display').html(results[pick]["Name"]);
+        }
+
+        $('.second-display').html("by " + results[pick]["Media"] + ", " + results[pick]["Status"] + ", " + results[pick]["Award"] + ", in " + results[pick]["Year"]);
+
+      }
       
     </script>
   </body>
