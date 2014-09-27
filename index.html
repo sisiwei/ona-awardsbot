@@ -170,7 +170,11 @@
         } else {
           $('.main-display').html(results[pick]["Media"]);
         }
-        $('.second-display').html(results[pick]["Status"] + ", " + results[pick]["Award"] + ", in " + results[pick]["Year"]);
+        if(results[pick]["Status"]=='Winner') {
+          $('.second-display').html(results[pick]["Status"] + ", " + results[pick]["Award"] + ", in " + results[pick]["Year"]);
+        } else {
+          $('.second-display').html(results[pick]["Status"] + ", in " + results[pick]["Year"]);
+        }
 
       } else {
 
@@ -182,7 +186,12 @@
 
         var media2 = results[pick]["Media2"] == "" ? "" : " and " + results[pick]["Media2"];
 
-        $('.second-display').html("by " + results[pick]["Media"] + media2 + ", " + results[pick]["Status"] + ", " + results[pick]["Award"] + ", in " + results[pick]["Year"]);
+        if(results[pick]["Status"]=='Winner') {
+          $('.second-display').html("by " + results[pick]["Media"] + media2 + ", " + results[pick]["Status"] + ", " + results[pick]["Award"] + ", in " + results[pick]["Year"]);
+        } else {
+           $('.second-display').html("by " + results[pick]["Media"] + media2 + ", " + results[pick]["Status"] + ", in " + results[pick]["Year"]);
+         }
+
 
       }
       
