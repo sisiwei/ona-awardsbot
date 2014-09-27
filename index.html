@@ -191,7 +191,7 @@
       }
 
       var pymChild = new pym.Child({ polling: 500 });
-      pymChild.sendHeight();
+      setTimeout(function() { pymChild.sendHeight(); }, 2000);
 
     </script>
   </body>
