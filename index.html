@@ -156,7 +156,8 @@
     <script>
     $(document).ready(function() {
         var pick = parseInt(Math.random()*1250);
-        var link = results[pick]["linkStatus"] <= 301 ? true : false;
+        console.log(pick);
+        var link = results[pick]["linkStatus"] !== "timeout" && results[pick]["linkStatus"] !== "#N/A" ? true : false;
 
         if ( results[pick]["Name"] == "" ){
 
